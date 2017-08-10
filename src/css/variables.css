@@ -1,0 +1,6 @@
+@import "./element-variables.css";
+
+:root {
+  --navbar-height: 45px;
+  --sidebar-width: 230px;
+}
