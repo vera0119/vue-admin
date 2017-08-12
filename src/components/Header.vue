@@ -15,6 +15,7 @@
           <img src="~@/assets/images/avatars/a1.png" alt="avatar" class="avatar hidden-xs">
           <span class="username">admin</span>
           <i class="fa fa-caret-down"></i>
+          <i class="fa fa-user-o"></i>
         </a>
         <el-dropdown-menu slot="dropdown" style="margin-top: 0; width:160px;">
           <el-dropdown-item><i class="fa fa-fw fa-user-o"></i>Your Profile</el-dropdown-item>
@@ -72,11 +73,19 @@
       &.active, &:hover {
         box-shadow: 0 0 20px rgba(0, 0, 0, .2)
       }
+    }
 
-      @media (max-width: 768px) {
-        & {
-          float: right;
-        }
+    @media (max-width: 768px) {
+      & {
+        padding-left: 0;
+      }
+
+      .navbar-brand {
+        display: none;
+      }
+
+      .sidebar-collapse {
+        width: var(--sidebar-collapse-width);
       }
     }
 
@@ -86,6 +95,10 @@
       margin-right: -15px;
       padding-right: 15px;
       
+      .fa-user-o {
+        display: none;
+      }
+
       .avatar {
         height: 38px;
         border-radius: 50%;
@@ -105,6 +118,16 @@
 
         &:hover {
           background-color: color(var(--color-primary) blackness(4%));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .avatar, .username, .fa-caret-down {
+          display: none;
+        }
+
+        .fa-user-o {
+          display: inline-block;
         }
       }
     }

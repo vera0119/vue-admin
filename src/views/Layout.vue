@@ -25,6 +25,11 @@
     
     .sidebar.collapse ~ .container {
       margin-left: var(--sidebar-collapse-width);
+      @media (max-width: 768px) {
+        & {
+          margin-left: 0;
+        }
+      }
     }
 
     .container {

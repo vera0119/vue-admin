@@ -44,6 +44,12 @@
     width: var(--sidebar-width);
     background-color: #fff;
     overflow: visible;
+
+    @media (max-width: 768px) {
+      &.collapse {
+        display: none;
+      }
+    }
     
     &.sidebar-fixed {
       position: fixed;
