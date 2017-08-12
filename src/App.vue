@@ -20,6 +20,6 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.42857143;
     height: 100%;
-    background-color: var(--color-extra-light-gray);
+    background-color: var(--color-light-white);
   }
 </style>

@@ -1,6 +1,8 @@
 @import "./element-variables.css";
 
 :root {
+  --color-light-white: #f3f4f5;
   --navbar-height: 45px;
   --sidebar-width: 230px;
+  --sidebar-collapse-width: 54px;
 }
