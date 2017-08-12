@@ -8,6 +8,10 @@
 # install dependencies
 npm install
 
+# build element-ui theme
+# http://element.eleme.io/#/en-US/component/custom-theme
+et
+
 # serve with hot reload at localhost:8080
 npm run dev
 
