@@ -1,0 +1,61 @@
+@import "./variables.css";
+
+.text-3x {
+  font-size: 3em;
+}
+
+.text-2x {
+  font-size: 2em;
+}
+
+.text-lg {
+  font-size: 18px;
+}
+
+.text-md {
+  font-size: 16px;
+}
+
+.text-base {
+  font-size: 14px;
+}
+
+.text-sm {
+  font-size: 13px;
+}
+
+.text-xs {
+  font-size: 12px;
+}
+
+.text-dark {
+  color: #333;
+}
+
+.text-light {
+  color: #666;
+}
+
+.text-muted {
+  color: #777;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-success {
+  color: var(--color-success);
+}
+
+.text-warning {
+  color: var(--color-warning);
+}
+
+.text-danger {
+  color: var(--color-danger);
+}
+
+.text-info {
+  color: var(--color-info);
+}

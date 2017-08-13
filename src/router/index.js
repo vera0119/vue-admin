@@ -18,6 +18,13 @@ export default new Router({
           label: 'Dashboard'
         },
         component: resolve => require(['@/views/Dashboard'], resolve)
+      }, {
+        path: 'tables',
+        name: 'tables',
+        meta: {
+          label: 'Tables'
+        },
+        component: resolve => require(['@/views/Tables'], resolve)
       }]
     }
   ]

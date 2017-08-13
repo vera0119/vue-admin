@@ -3,6 +3,7 @@
 import 'babel-polyfill'
 import Vue from 'vue'
 import 'font-awesome/css/font-awesome.min.css'
+import '@/css/app.css'
 import ElementUI from 'element-ui'
 
 // import 'element-ui/lib/theme-default/index.css'

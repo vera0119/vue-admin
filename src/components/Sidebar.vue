@@ -20,7 +20,7 @@
         </template>
         <el-menu-item-group>
           <template slot="title">Table</template>
-          <el-menu-item index="1-1">Table</el-menu-item>
+          <el-menu-item index="1-1" :route="{name: 'tables'}">Tables</el-menu-item>
           <el-menu-item index="1-2">Pagination</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group title="Tag">
