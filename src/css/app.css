@@ -1,5 +1,10 @@
 @import "./variables.css";
 
+.el-pagination {
+  padding: 0;
+  margin: 10px 0;
+}
+
 .text-3x {
   font-size: 3em;
 }

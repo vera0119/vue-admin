@@ -30,6 +30,13 @@ export default new Router({
             label: 'Table'
           },
           component: resolve => require(['@/views/Table'], resolve)
+        }, {
+          path: 'pagination',
+          name: 'pagination',
+          meta: {
+            label: 'Pagination'
+          },
+          component: resolve => require(['@/views/Pagination'], resolve)
         }]
       }]
     }
