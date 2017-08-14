@@ -44,6 +44,13 @@ export default new Router({
             label: 'Tag'
           },
           component: resolve => require(['@/views/Tag'], resolve)
+        }, {
+          path: 'badge',
+          name: 'badge',
+          meta: {
+            label: 'Badge'
+          },
+          component: resolve => require(['@/views/Badge'], resolve)
         }]
       }]
     }
