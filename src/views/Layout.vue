@@ -4,7 +4,9 @@
     <sidebar :collapse="collapse"/>
     <div class="container">
       <breadcrumb :routes="routes"/>
-      <router-view></router-view>
+      <div class="page-container">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
@@ -36,6 +38,10 @@
       margin-left: var(--sidebar-width);
       margin-top: var(--navbar-height);
       overflow: hidden;
+    }
+
+    .page-container {
+      margin: 15px 15px;
     }
   }
 </style>

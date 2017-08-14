@@ -5,6 +5,7 @@ import Vue from 'vue'
 import 'font-awesome/css/font-awesome.min.css'
 import '@/css/app.css'
 import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
 
 // import 'element-ui/lib/theme-default/index.css'
 // import '@/css/theme/index.css'
@@ -14,7 +15,7 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-Vue.use(ElementUI)
+Vue.use(ElementUI, { locale })
 
 /* eslint-disable no-new */
 new Vue({

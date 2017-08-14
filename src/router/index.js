@@ -9,7 +9,6 @@ export default new Router({
     {
       path: '/',
       redirect: '/dashboard',
-      name: 'layout',
       component: Layout,
       children: [{
         path: 'dashboard',
@@ -19,12 +18,19 @@ export default new Router({
         },
         component: resolve => require(['@/views/Dashboard'], resolve)
       }, {
-        path: 'tables',
-        name: 'tables',
+        path: 'ui-elements',
         meta: {
-          label: 'Tables'
+          label: 'UI Elements'
         },
-        component: resolve => require(['@/views/Tables'], resolve)
+        component: { render(c) { return c('router-view') } },
+        children: [{
+          path: 'table',
+          name: 'table',
+          meta: {
+            label: 'Table'
+          },
+          component: resolve => require(['@/views/Table'], resolve)
+        }]
       }]
     }
   ]

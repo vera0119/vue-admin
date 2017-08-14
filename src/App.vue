@@ -21,5 +21,6 @@ export default {
     line-height: 1.42857143;
     height: 100%;
     background-color: var(--color-light-white);
+    color: #333;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <el-breadcrumb>
-    <el-breadcrumb-item v-for="route in routes" v-if="route.meta.label" :key="route.name" :to="route.name">
+    <el-breadcrumb-item v-for="route in routes" v-if="route.meta.label" :key="route.name" :to="route">
       {{ route.meta.label }}
     </el-breadcrumb-item>
   </el-breadcrumb>

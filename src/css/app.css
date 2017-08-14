@@ -59,3 +59,23 @@
 .text-info {
   color: var(--color-info);
 }
+
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-success {
+  background-color: var(--color-success) !important;
+}
+
+.bg-warning {
+  background-color: var(--color-warning) !important;
+}
+
+.bg-danger {
+  background-color: var(--color-danger) !important;
+}
+
+.m-b {
+  margin-bottom: 15px;
+}
