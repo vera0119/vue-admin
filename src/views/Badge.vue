@@ -19,7 +19,7 @@
                 comments
                 <el-badge class="mark" :value="12"/>
               </el-dropdown-item>
-              <el-dropdown-item class="clearfix">
+              <el-dropdown-item>
                 replies
                 <el-badge class="mark" :value="3"/>
               </el-dropdown-item>
@@ -78,9 +78,14 @@
   }
 
   .mark {
+    float: right;
     margin-top: 8px;
     line-height: 1;
-    float: right;
+  }
+
+  .el-dropdown-menu {
+    width: 150px;
+    box-sizing: border-box;
   }
 </style>
 

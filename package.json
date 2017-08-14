@@ -105,7 +105,7 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not ie <= 8"
+    "ie >= 9"
   ],
   "element-theme": {
     "out": "./src/css/theme",

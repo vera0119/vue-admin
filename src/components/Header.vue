@@ -77,7 +77,7 @@
       </el-dropdown>
       <el-dropdown>
         <a class="el-dropdown-link">
-          <img src="~@/assets/images/avatars/a1.png" alt="avatar" class="avatar hidden-xs">
+          <img src="~@/assets/images/avatars/a1.png" alt="avatar" class="avatar" width="35" height="35">
           <span class="username">admin</span>
           <i class="fa fa-caret-down"></i>
           <i class="fa fa-user-o"></i>
