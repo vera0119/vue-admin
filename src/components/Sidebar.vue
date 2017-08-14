@@ -22,6 +22,7 @@
           <template slot="title">Data</template>
           <el-menu-item index="table" :route="{name: 'table'}">Table</el-menu-item>
           <el-menu-item index="pagination" :route="{name: 'pagination'}">Pagination</el-menu-item>
+          <el-menu-item index="tag" :route="{name: 'tag'}">Tag</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group title="Tag">
           <el-menu-item index="1-3">Tag</el-menu-item>

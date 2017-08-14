@@ -37,6 +37,13 @@ export default new Router({
             label: 'Pagination'
           },
           component: resolve => require(['@/views/Pagination'], resolve)
+        }, {
+          path: 'tag',
+          name: 'tag',
+          meta: {
+            label: 'Tag'
+          },
+          component: resolve => require(['@/views/Tag'], resolve)
         }]
       }]
     }
