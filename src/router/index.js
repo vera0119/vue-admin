@@ -51,6 +51,13 @@ export default new Router({
             label: 'Badge'
           },
           component: resolve => require(['@/views/Badge'], resolve)
+        }, {
+          path: 'progress',
+          name: 'progress',
+          meta: {
+            label: 'Progress'
+          },
+          component: resolve => require(['@/views/Progress'], resolve)
         }]
       }]
     }

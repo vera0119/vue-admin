@@ -198,7 +198,7 @@
       }
 
       .avatar {
-        height: 38px;
+        height: 35px;
         border-radius: 50%;
       }
 
