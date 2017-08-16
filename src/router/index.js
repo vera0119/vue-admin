@@ -58,6 +58,13 @@ export default new Router({
             label: 'Progress'
           },
           component: resolve => require(['@/views/Progress'], resolve)
+        }, {
+          path: 'tree',
+          name: 'tree',
+          meta: {
+            label: 'Tree'
+          },
+          component: resolve => require(['@/views/Tree'], resolve)
         }]
       }]
     }
