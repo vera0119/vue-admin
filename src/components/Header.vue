@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-fixed-top">
     <div class="navbar-header pull-left">
-      <a href="#" class="navbar-brand">
+      <a href="#" class="navbar-brand" :class="{collapse: collapse}">
         <img src="~@/assets/images/logo.png" alt="logo" width="35" height="35">
         <span>Vue.js</span>
       </a>
@@ -102,7 +102,7 @@
     color: #fff;
     background-color: var(--color-primary);
     box-sizing: border-box;
-    padding: 0 15px;
+    padding: 0 10px;
     
     .fa {
       font-size: 18px;
@@ -115,8 +115,8 @@
 
     .navbar-brand {
       display: inline-block;
-      width: 180px;
-
+      width: 185px;
+      
       img {
         border: 0;
       }
@@ -124,6 +124,18 @@
       img, span {
         vertical-align: middle;
         line-height: var(--navbar-height);
+      }
+
+      &:after {
+        content: "";
+        line-height: var(--navbar-height);
+      }
+
+      &.collapse {
+        width: calc(var(--sidebar-collapse-width) - 10px);
+        span {
+          display: none;
+        }
       }
     }
 

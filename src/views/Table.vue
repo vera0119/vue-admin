@@ -232,8 +232,21 @@
 </template>
 
 <script>
+  import { mapState, mapGetters, mapActions } from 'vuex'
+
   export default {
+    data() {
+      return {
+        currentRow: null,
+        multipleSelection: []
+      }
+    },
+    computed: {
+      ...mapState('table', ['tableData2', 'tableData3']),
+      ...mapGetters('table', ['tableData'])
+    },
     methods: {
+      ...mapActions('table', ['getTableData', 'getTableData2', 'getTableData3']),
       tableRowClassName(row, index) {
         let color = ['text-primary', 'text-success', 'text-warning', 'text-danger']
         return color[index % color.length]
@@ -283,113 +296,9 @@
         return sums
       }
     },
-    data() {
-      return {
-        tableData: [{
-          date: '2016-05-03',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles',
-          tag: 'Home'
-        }, {
-          date: '2016-05-02',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles',
-          tag: 'Office'
-        }, {
-          date: '2016-05-04',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles',
-          tag: 'Home'
-        }, {
-          date: '2016-05-01',
-          name: 'Tom',
-          address: 'No. 189, Grove St, Los Angeles',
-          tag: 'Office'
-        }],
-        tableData2: [{
-          date: '2016-05-03',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-02',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-04',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-01',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-08',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-06',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-07',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }],
-        tableData3: [{
-          id: '12987122',
-          name: 'Tom',
-          amount1: '234',
-          amount2: '3.2',
-          amount3: 10
-        }, {
-          id: '12987123',
-          name: 'Tom',
-          amount1: '165',
-          amount2: '4.43',
-          amount3: 12
-        }, {
-          id: '12987124',
-          name: 'Tom',
-          amount1: '324',
-          amount2: '1.9',
-          amount3: 9
-        }, {
-          id: '12987125',
-          name: 'Tom',
-          amount1: '621',
-          amount2: '2.2',
-          amount3: 17
-        }, {
-          id: '12987126',
-          name: 'Tom',
-          amount1: '539',
-          amount2: '4.1',
-          amount3: 15
-        }],
-        currentRow: null,
-        multipleSelection: []
-      }
+    created() {
+      this.getTableData2()
+      this.getTableData3()
     }
   }
 </script>

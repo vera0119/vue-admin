@@ -1,37 +1,31 @@
 <template>
   <div class="sidebar sidebar-fixed" :class="{'collapse': collapse, 'ps ps--theme_default': !collapse}">
     <el-menu :default-active="$route.name" :collapse="collapse" :router="true">
-      <el-menu-item index="dashboard" :route="{name: 'dashboard'}">
-        <i class="fa fa-dashboard"></i>
-        <span slot="title">Dashboard</span>
-      </el-menu-item>
-      <el-submenu  index="2">
-        <template slot="title">
-          <i class="fa fa-pencil-square-o"></i>
-          <span slot="title">Forms</span>
-        </template>
-        <el-menu-item index="1-1">Form Elements</el-menu-item>
-        <el-menu-item index="1-2">File Upload</el-menu-item>
-      </el-submenu>
-      <el-submenu index="3">
-        <template slot="title">
-          <i class="fa fa-briefcase"></i>
-          <span slot="title">UI Elements</span>
-        </template>
-        <el-menu-item-group>
-          <template slot="title">Data</template>
-          <el-menu-item index="table" :route="{name: 'table'}">Table</el-menu-item>
-          <el-menu-item index="pagination" :route="{name: 'pagination'}">Pagination</el-menu-item>
-          <el-menu-item index="tag" :route="{name: 'tag'}">Tag</el-menu-item>
-          <el-menu-item index="badge" :route="{name: 'badge'}">Badge</el-menu-item>
-          <el-menu-item index="progress" :route="{name: 'progress'}">Progress</el-menu-item>
-          <el-menu-item index="tree" :route="{name: 'tree'}">Tree</el-menu-item>
-        </el-menu-item-group>
-        <!-- <el-menu-item-group title="Tag">
-          <el-menu-item index="1-3">Tag</el-menu-item>
-          <el-menu-item index="1-4">Badge</el-menu-item>
-        </el-menu-item-group> -->
-      </el-submenu>
+      <template v-for="item in list" v-if="item.children == null">
+        <el-menu-item :index="item.name" :route="item">
+          <i :class="item.icon"></i>
+          <span slot="title">{{item.meta.label}}</span>
+        </el-menu-item>
+      </template>
+      <template :for="item in list" v-else>
+        <el-submenu :index="item.name">
+          <template slot="title">
+            <i :class="item.icon"></i>
+            <span slot="title">{{item.meta.label}}</span>
+          </template>
+          <template v-for="item in item.children">
+            <template v-if="item.group">
+              <el-menu-item-group>
+                <template slot="title">{{item.group}}</template>
+                <el-menu-item v-for="item in item.values" :key="item.name" :index="item.name" :route="item">{{item.meta.label}}</el-menu-item>
+              </el-menu-item-group>
+            </template>
+            <template v-else>
+              <el-menu-item v-for="item in item.values" :key="item.name" :index="item.name" :route="item">{{item.meta.label}}</el-menu-item>
+            </template>
+          </template>
+         </el-submenu>
+      </template>
     </el-menu>
   </div>
 </template>
@@ -152,6 +146,8 @@
   import Ps from 'perfect-scrollbar'
   import 'perfect-scrollbar/dist/css/perfect-scrollbar.css'
 
+  import { mapState, mapActions } from 'vuex'
+
   export default {
     name: 'sidebar',
     props: ['collapse'],
@@ -161,7 +157,7 @@
       }
     },
     watch: {
-      collapse: function() {
+      collapse() {
         if (this.collapse) {
           Ps.destroy(this.$el)
         } else {
@@ -169,10 +165,21 @@
         }
       }
     },
-    mounted: function() {
+    created() {
+      this.getList(this.$router)
+    },
+    mounted() {
       this.initScoll()
     },
+    computed: {
+      ...mapState('menu', {
+        list: state => state.list
+      })
+    },
     methods: {
+      ...mapActions('menu', {
+        getList: 'getList'
+      }),
       initScoll: function() {
         Ps.initialize(this.$el, {
           suppressScrollX: true

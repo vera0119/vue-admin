@@ -19,6 +19,7 @@ export default new Router({
         component: resolve => require(['@/views/Dashboard'], resolve)
       }, {
         path: 'ui-elements',
+        name: 'ui-elements',
         meta: {
           label: 'UI Elements'
         },

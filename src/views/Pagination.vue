@@ -70,6 +70,8 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     methods: {
       handleSizeChange: function(val) {
@@ -79,61 +81,9 @@
         this.getData(val, this.pageSize)
       },
       getData: function(currentPage, pageSize) {
-        const data = [{
-          date: '2016-05-03',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-02',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-04',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-01',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-08',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-06',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }, {
-          date: '2016-05-07',
-          name: 'Tom',
-          state: 'California',
-          city: 'Los Angeles',
-          address: 'No. 189, Grove St, Los Angeles',
-          zip: 'CA 90036'
-        }]
-
         this.currentPage = currentPage
         this.pageSize = pageSize
-        this.tableData = data.slice((currentPage - 1) * pageSize, currentPage * pageSize)
-        this.tableData.total = data.length
+        this.$store.dispatch('table/getPageTableData', { pageSize, currentPage })
       }
     },
     mounted: function() {
@@ -142,9 +92,11 @@
     data() {
       return {
         currentPage: 1,
-        pageSize: 2,
-        tableData: []
+        pageSize: 2
       }
+    },
+    computed: {
+      ...mapState('table', { tableData: 'pageTableData' })
     }
   }
 </script>
