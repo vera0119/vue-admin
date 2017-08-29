@@ -66,6 +66,20 @@ export default new Router({
             label: 'Tree'
           },
           component: resolve => require(['@/views/Tree'], resolve)
+        }, {
+          path: 'alert',
+          name: 'alert',
+          meta: {
+            label: 'Alert'
+          },
+          component: resolve => require(['@/views/Alert'], resolve)
+        }, {
+          path: 'message',
+          name: 'message',
+          meta: {
+            label: 'Message'
+          },
+          component: resolve => require(['@/views/Message'], resolve)
         }]
       }]
     }

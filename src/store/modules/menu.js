@@ -29,6 +29,9 @@ function getList($route) {
       children: [{
         group: 'Data',
         values: [{name: 'table'}, {name: 'pagination'}, {name: 'tag'}, {name: 'badge'}, {name: 'progress'}, {name: 'tree'}]
+      }, {
+        group: 'Notice',
+        values: [{name: 'alert'}, {name: 'message'}]
       }]
     }]
 
