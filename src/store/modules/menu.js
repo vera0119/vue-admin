@@ -27,6 +27,9 @@ function getList($route) {
       name: 'ui-elements',
       icon: 'fa fa-briefcase',
       children: [{
+        group: 'Form',
+        values: [{name: 'radio'}]
+      }, {
         group: 'Data',
         values: [{name: 'table'}, {name: 'pagination'}, {name: 'tag'}, {name: 'badge'}, {name: 'progress'}, {name: 'tree'}]
       }, {

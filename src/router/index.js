@@ -25,6 +25,13 @@ export default new Router({
         },
         component: { render(c) { return c('router-view') } },
         children: [{
+          path: 'radio',
+          name: 'radio',
+          meta: {
+            label: 'Radio'
+          },
+          component: resolve => require(['@/views/Radio'], resolve)
+        }, {
           path: 'table',
           name: 'table',
           meta: {
