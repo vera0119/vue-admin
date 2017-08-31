@@ -22,6 +22,9 @@ const mutations = {
 }
 
 const actions = {
+  async getTableData({ commit, state }) {
+    commit('setTableData2', await getTableData2())
+  },
   async getTableData2({ commit, state }) {
     commit('setTableData2', await getTableData2())
   },
@@ -96,7 +99,11 @@ function getTableData2() {
     tag: 'Office'
   }]
 
-  return Promise.resolve(data)
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(data)
+    }, 500)
+  })
 }
 
 function getTableData3() {

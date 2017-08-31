@@ -31,7 +31,7 @@ function getList($route) {
         values: [{name: 'table'}, {name: 'pagination'}, {name: 'tag'}, {name: 'badge'}, {name: 'progress'}, {name: 'tree'}]
       }, {
         group: 'Notice',
-        values: [{name: 'alert'}, {name: 'message'}, {name: 'messageBox'}, {name: 'notification'}]
+        values: [{name: 'alert'}, {name: 'message'}, {name: 'messageBox'}, {name: 'notification'}, {name: 'loading'}]
       }]
     }]
 

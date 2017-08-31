@@ -94,6 +94,13 @@ export default new Router({
             label: 'Notification'
           },
           component: resolve => require(['@/views/Notification'], resolve)
+        }, {
+          path: 'loading',
+          name: 'loading',
+          meta: {
+            label: 'Loading'
+          },
+          component: resolve => require(['@/views/Loading'], resolve)
         }]
       }]
     }
