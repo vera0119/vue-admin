@@ -80,6 +80,13 @@ export default new Router({
             label: 'Message'
           },
           component: resolve => require(['@/views/Message'], resolve)
+        }, {
+          path: 'messageBox',
+          name: 'messageBox',
+          meta: {
+            label: 'MessageBox'
+          },
+          component: resolve => require(['@/views/MessageBox'], resolve)
         }]
       }]
     }
