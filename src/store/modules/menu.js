@@ -28,7 +28,7 @@ function getList($route) {
       icon: 'fa fa-briefcase',
       children: [{
         group: 'Form',
-        values: [{name: 'radio'}]
+        values: [{name: 'radio'}, {name: 'checkbox'}]
       }, {
         group: 'Data',
         values: [{name: 'table'}, {name: 'pagination'}, {name: 'tag'}, {name: 'badge'}, {name: 'progress'}, {name: 'tree'}]

@@ -32,6 +32,13 @@ export default new Router({
           },
           component: resolve => require(['@/views/Radio'], resolve)
         }, {
+          path: 'checkbox',
+          name: 'checkbox',
+          meta: {
+            label: 'Checkbox'
+          },
+          component: resolve => require(['@/views/Checkbox'], resolve)
+        }, {
           path: 'table',
           name: 'table',
           meta: {
