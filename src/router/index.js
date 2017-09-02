@@ -39,6 +39,13 @@ export default new Router({
           },
           component: resolve => require(['@/views/Checkbox'], resolve)
         }, {
+          path: 'input',
+          name: 'input',
+          meta: {
+            label: 'Input'
+          },
+          component: resolve => require(['@/views/Input'], resolve)
+        }, {
           path: 'table',
           name: 'table',
           meta: {
