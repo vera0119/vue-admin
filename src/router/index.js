@@ -46,6 +46,13 @@ export default new Router({
           },
           component: resolve => require(['@/views/Input'], resolve)
         }, {
+          path: 'inputNumber',
+          name: 'inputNumber',
+          meta: {
+            label: 'InputNumber'
+          },
+          component: resolve => require(['@/views/InputNumber'], resolve)
+        }, {
           path: 'table',
           name: 'table',
           meta: {
