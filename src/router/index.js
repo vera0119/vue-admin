@@ -3,8 +3,9 @@ import Router from 'vue-router'
 import Layout from '@/views/Layout'
 
 Vue.use(Router)
-
+console.log()
 export default new Router({
+  mode: process.env.NODE_ENV === 'development' ? 'history' : 'hash',
   routes: [
     {
       path: '/',
