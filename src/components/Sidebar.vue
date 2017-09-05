@@ -1,6 +1,6 @@
 <template>
-  <div class="sidebar sidebar-fixed" :class="{'collapse': collapse, 'ps ps--theme_default': !collapse}">
-    <el-menu :default-active="$route.name" :collapse="collapse" :router="true">
+  <div class="sidebar sidebar-fixed ps ps--theme_default" :class="{'collapse': collapse}">
+    <el-menu :default-active="$route.name" :collapse="collapse" :router="true" ref="menu">
       <template v-for="item in list" v-if="item.children == null">
         <el-menu-item :index="item.name" :route="item">
           <i :class="item.icon"></i>
@@ -8,7 +8,7 @@
         </el-menu-item>
       </template>
       <template :for="item in list" v-else>
-        <el-submenu :index="item.name">
+        <el-submenu :index="item.name" ref="submenu">
           <template slot="title">
             <i :class="item.icon"></i>
             <span slot="title">{{item.meta.label}}</span>
@@ -67,14 +67,30 @@
         width: var(--sidebar-collapse-width);
       }
 
+      &.collapse > .el-menu {
+        & .el-submenu .el-menu {
+          position: fixed;
+          top: var(--navbar-height);
+          left: var(--sidebar-collapse-width);
+        }
+      }
+
+      &:not(.collapse) {
+        > .el-menu .el-submenu .el-menu {
+          top: 0 !important;
+          bottom: initial !important;
+        }
+      }
+
       .el-menu-item .fa, .el-submenu .fa {
         vertical-align: baseline;
         margin-right: 10px;
       }
-      
+
       > .el-menu {
         background-color: #fff;
         transition: initial;
+        width: var(--sidebar-width);
 
         &.el-menu--collapse, &.el-menu--collapse:before {
           width: var(--sidebar-collapse-width);
@@ -159,9 +175,7 @@
     watch: {
       collapse() {
         if (this.collapse) {
-          Ps.destroy(this.$el)
-        } else {
-          this.initScoll()
+          this.scrollSubmenu()
         }
       }
     },
@@ -169,7 +183,16 @@
       this.getList(this.$router)
     },
     mounted() {
-      this.initScoll()
+      Ps.initialize(this.$el, {
+        suppressScrollX: true
+      })
+
+      this.$refs.menu.$watch('openedMenus', () => {
+        this.$nextTick(() => {
+          this.scrollSubmenu()
+          this.positionSubmenu()
+        })
+      }, { deep: true, immediate: true })
     },
     computed: {
       ...mapState('menu', {
@@ -180,10 +203,41 @@
       ...mapActions('menu', {
         getList: 'getList'
       }),
-      initScoll: function() {
-        Ps.initialize(this.$el, {
-          suppressScrollX: true
-        })
+      positionSubmenu() {
+        let submenus = this.$refs.menu.$children
+        for (let submenu of submenus) {
+          if (submenu.opened) {
+            let psEl = submenu.$el.querySelector('.el-menu')
+            let maxHeight = this.$el.offsetHeight - submenu.$el.offsetTop + submenu.$el.scrollHeight
+            if (maxHeight < psEl.scrollHeight) {
+              psEl.style.bottom = '5px'
+            }
+            psEl.style.top = submenu.$el.offsetTop - this.$el.scrollTop + this.$el.offsetTop + 'px'
+          }
+        }
+      },
+      scrollSubmenu: function() {
+        let submenus = this.$refs.menu.$children
+        for (let submenu of submenus) {
+          if (submenu.opened) {
+            if (!submenu.psEl) {
+              submenu.psEl = submenu.$el.querySelector('.el-menu')
+              Ps.initialize(submenu.psEl, {
+                suppressScrollX: true
+              })
+            }
+
+            if (submenu.psEl.classList) {
+              if (!submenu.psEl.classList.contains('ps')) {
+                submenu.psEl.classList.add('ps', 'ps--theme_default')
+              }
+            } else {
+              if (submenu.psEl.className.indexOf('ps') === -1) {
+                submenu.psEl.className += ' ps ps--theme_default'
+              }
+            }
+          }
+        }
       }
     }
   }
