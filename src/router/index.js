@@ -61,6 +61,13 @@ export default new Router({
           },
           component: resolve => require(['@/views/Table'], resolve)
         }, {
+          path: 'select',
+          name: 'select',
+          meta: {
+            label: 'Select'
+          },
+          component: resolve => require(['@/views/Select'], resolve)
+        }, {
           path: 'pagination',
           name: 'pagination',
           meta: {
