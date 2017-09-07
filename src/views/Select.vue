@@ -4,7 +4,7 @@
       <el-col :md="12">
         <el-card class="box-card m-b">
           <div slot="header">Basic usage</div>
-          <el-select v-model="value" placeholder="Select">
+          <el-select v-model="value" placeholder="Select" v-on:change="onChange">
             <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
           </el-select>
         </el-card>
@@ -181,6 +181,11 @@
         } else {
           this.options3 = []
         }
+      },
+      onChange(selected) {
+        this.$message.info({
+          message: selected
+        })
       }
     }
   }
