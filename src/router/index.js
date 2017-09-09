@@ -54,19 +54,26 @@ export default new Router({
           },
           component: resolve => require(['@/views/InputNumber'], resolve)
         }, {
-          path: 'table',
-          name: 'table',
-          meta: {
-            label: 'Table'
-          },
-          component: resolve => require(['@/views/Table'], resolve)
-        }, {
           path: 'select',
           name: 'select',
           meta: {
             label: 'Select'
           },
           component: resolve => require(['@/views/Select'], resolve)
+        }, {
+          path: 'cascader',
+          name: 'cascader',
+          meta: {
+            label: 'Cascader'
+          },
+          component: resolve => require(['@/views/Cascader'], resolve)
+        }, {
+          path: 'table',
+          name: 'table',
+          meta: {
+            label: 'Table'
+          },
+          component: resolve => require(['@/views/Table'], resolve)
         }, {
           path: 'pagination',
           name: 'pagination',
