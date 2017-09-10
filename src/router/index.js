@@ -68,6 +68,13 @@ export default new Router({
           },
           component: resolve => require(['@/views/Cascader'], resolve)
         }, {
+          path: 'switch',
+          name: 'switch',
+          meta: {
+            label: 'Switch'
+          },
+          component: resolve => require(['@/views/Switch'], resolve)
+        }, {
           path: 'table',
           name: 'table',
           meta: {
