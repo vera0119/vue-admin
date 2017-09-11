@@ -75,6 +75,13 @@ export default new Router({
           },
           component: resolve => require(['@/views/Switch'], resolve)
         }, {
+          path: 'slider',
+          name: 'slider',
+          meta: {
+            label: 'Slider'
+          },
+          component: resolve => require(['@/views/Slider'], resolve)
+        }, {
           path: 'table',
           name: 'table',
           meta: {
