@@ -82,6 +82,13 @@ export default new Router({
           },
           component: resolve => require(['@/views/Slider'], resolve)
         }, {
+          path: 'timePicker',
+          name: 'timePicker',
+          meta: {
+            label: 'TimePicker'
+          },
+          component: resolve => require(['@/views/TimePicker'], resolve)
+        }, {
           path: 'table',
           name: 'table',
           meta: {

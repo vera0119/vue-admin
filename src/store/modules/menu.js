@@ -29,7 +29,7 @@ function getList($route) {
       children: [{
         group: 'Form',
         values: [{name: 'radio'}, {name: 'checkbox'}, {name: 'input'}, {name: 'inputNumber'}, {name: 'select'}, {name: 'cascader'},
-          {name: 'switch'}, {name: 'slider'}]
+          {name: 'switch'}, {name: 'slider'}, {name: 'timePicker'}]
       }, {
         group: 'Data',
         values: [{name: 'table'}, {name: 'pagination'}, {name: 'tag'}, {name: 'badge'}, {name: 'progress'}, {name: 'tree'}]
