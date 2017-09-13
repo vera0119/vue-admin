@@ -1,2 +1,0 @@
-webpackJsonp([1],{383:function(e,n,t){var r=t(51)(t(387),t(389),null,null,null);e.exports=r.exports},387:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.default={name:"dashboard"}},389:function(e,n){e.exports={render:function(){var e=this,n=e.$createElement;return(e._self._c||n)("div",[e._v("dashboard")])},staticRenderFns:[]}}});
-//# sourceMappingURL=1.87141ffefd235103d7bb.js.map
