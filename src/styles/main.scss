@@ -1,0 +1,23 @@
+/* 目录结构参考https://sass-guidelin.es/#the-7-1-pattern，严格按照顺序引入 */
+
+/* abstracts: 公共的变量和工具类 */
+@import "abstracts/_variables.scss";
+@import "abstracts/_mixins.scss";
+@import "abstracts/_functions.scss";
+
+/* vendors: 第三方代码，不直接修改 */
+
+/* vendors-extensions: 覆盖vendors中的代码 */
+
+/* base */
+@import "base/_reset.scss";
+
+/* layout: 网站布局 */
+
+/* components: 组件 */
+
+/* utilities: 工具class */
+
+/* pages: pages的css不在此引入，在每个页面自行引入 */
+
+/* themes: 网站主题 */

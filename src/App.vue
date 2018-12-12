@@ -1,26 +1,23 @@
 <template>
-  <router-view></router-view>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <router-view/>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'App'
 }
 </script>
 
 <style>
-  @import "./css/variables.css";
-
-  html, body {
-    margin: 0;
-    padding: 0;
-    font-family: tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
-    font-size: 14px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.42857143;
-    height: 100%;
-    background-color: var(--color-light-white);
-    color: #333;
-  }
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>

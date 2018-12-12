@@ -1,4 +1,4 @@
-# vue-admin-demo
+# vue-admin
 
 > A Vue.js admin template
 
@@ -7,10 +7,6 @@
 ``` bash
 # install dependencies
 npm install
-
-# build element-ui theme
-# http://element.eleme.io/#/en-US/component/custom-theme
-et
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -31,4 +27,4 @@ npm run e2e
 npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
